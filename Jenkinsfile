@@ -9,9 +9,14 @@ pipeline {
         }
         stage('Package') {
             steps {
-                sh 'zip -r ../${BUILD_NUMBER}.zip *'
+                sh 'node zip-project.js'
             }
         }
     }
+    post {
+        always {
+            archiveArtifacts artifacts: 'build.zip', fingerprint: true
+        }
+    }
 }
-
+ 
