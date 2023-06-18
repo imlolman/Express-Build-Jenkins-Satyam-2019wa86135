@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Package') {
             steps {
-                sh 'node zip-project.js'
+                sh 'node compress.js'
             }
         }
     }
@@ -19,4 +19,4 @@ pipeline {
         }
     }
 }
- 
+
